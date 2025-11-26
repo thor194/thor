@@ -17,7 +17,11 @@ function createCard(song) {
     // Generate tags HTML
     const tagsHTML = song.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
+    // YouTube thumbnail URL
+    const thumbnailUrl = `https://img.youtube.com/vi/${song.youtubeId}/hqdefault.jpg`;
+
     card.innerHTML = `
+        <div class="card-thumbnail" style="background-image: url('${thumbnailUrl}')"></div>
         <div class="card-header">
             <span class="card-number">${song.number}</span>
             ${youtubeIcon}

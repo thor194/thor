@@ -11,10 +11,35 @@
     justify-content: space-between;
     height: 350px;
     cursor: pointer;
+    overflow: hidden;
 
     /* Staggered Animation Entry */
     opacity: 0;
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* YouTube Thumbnail Background */
+.card-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.card-thumbnail::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, transparent 20%, var(--card-bg) 85%, var(--card-bg) 100%);
+    transition: opacity var(--transition-medium);
+}
+
+.card:hover .card-thumbnail::after {
+    opacity: 0.5;
 }
 
 /* Animation Delays for Staggered Load */
@@ -39,6 +64,8 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 1;
 }
 
 .card-number {
@@ -60,6 +87,8 @@
 
 .card-body {
     margin-top: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .card-topic {

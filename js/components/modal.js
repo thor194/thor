@@ -28,7 +28,7 @@ class ModalController {
 
         // Current song data
         this.currentSong = null;
-        this.activePlayer = 'youtube';
+        this.activePlayer = 'spotify';
 
         this.bindEvents();
     }
@@ -85,12 +85,12 @@ class ModalController {
         // Store current song
         this.currentSong = song;
 
-        // Reset to YouTube player by default
-        this.activePlayer = 'youtube';
-        this.tabYoutube.classList.add('active');
-        this.tabSpotify.classList.remove('active');
-        this.youtubeContainer.classList.add('active');
-        this.spotifyContainer.classList.remove('active');
+        // Reset to Spotify player by default
+        this.activePlayer = 'spotify';
+        this.tabSpotify.classList.add('active');
+        this.tabYoutube.classList.remove('active');
+        this.spotifyContainer.classList.add('active');
+        this.youtubeContainer.classList.remove('active');
 
         // Populate content
         this.populate(song);
@@ -121,14 +121,16 @@ class ModalController {
     }
 
     populate(song) {
-        // Set YouTube embed URL using official embed format
-        this.youtubePlayer.src = `https://www.youtube.com/embed/${song.youtubeId}?rel=0`;
+        // Set Spotify embed URL by default
+        if (song.spotifyId) {
+            this.spotifyPlayer.src = `https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0`;
+        }
 
         // Set YouTube direct link as fallback
         this.youtubeLinkEl.href = song.youtubeUrl;
 
-        // Clear Spotify (will load when tab clicked)
-        this.spotifyPlayer.src = '';
+        // Clear YouTube (will load when tab clicked)
+        this.youtubePlayer.src = '';
 
         // Set duration display
         this.spotifyDuration.textContent = song.duration ? `Duration: ${song.duration}` : '';
