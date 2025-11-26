@@ -85,15 +85,14 @@ class ModalController {
         // Store current song
         this.currentSong = song;
 
-        // Determine default player - YouTube for songs without Spotify
-        const defaultPlayer = (song.preferYoutube || !song.spotifyId) ? 'youtube' : 'spotify';
-        this.activePlayer = defaultPlayer;
+        // Always default to YouTube player
+        this.activePlayer = 'youtube';
 
-        // Set tab and container states based on default player
-        this.tabSpotify.classList.toggle('active', defaultPlayer === 'spotify');
-        this.tabYoutube.classList.toggle('active', defaultPlayer === 'youtube');
-        this.spotifyContainer.classList.toggle('active', defaultPlayer === 'spotify');
-        this.youtubeContainer.classList.toggle('active', defaultPlayer === 'youtube');
+        // Set tab and container states - YouTube always active first
+        this.tabYoutube.classList.add('active');
+        this.tabSpotify.classList.remove('active');
+        this.youtubeContainer.classList.add('active');
+        this.spotifyContainer.classList.remove('active');
 
         // Populate content
         this.populate(song);
@@ -127,16 +126,9 @@ class ModalController {
         // Set YouTube direct link
         this.youtubeLinkEl.href = song.youtubeUrl;
 
-        // Load the appropriate player based on preference
-        if (song.preferYoutube || !song.spotifyId) {
-            // Load YouTube first, clear Spotify
-            this.youtubePlayer.src = `https://www.youtube.com/embed/${song.youtubeId}?rel=0`;
-            this.spotifyPlayer.src = '';
-        } else {
-            // Load Spotify first, clear YouTube
-            this.spotifyPlayer.src = `https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0`;
-            this.youtubePlayer.src = '';
-        }
+        // Always load YouTube first, clear Spotify
+        this.youtubePlayer.src = `https://www.youtube.com/embed/${song.youtubeId}?rel=0`;
+        this.spotifyPlayer.src = '';
 
         // Set duration display
         this.spotifyDuration.textContent = song.duration ? `Duration: ${song.duration}` : '';
