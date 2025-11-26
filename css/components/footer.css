@@ -1,0 +1,12 @@
+/* Footer Component */
+.site-footer {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}

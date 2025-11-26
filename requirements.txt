@@ -1,0 +1,80 @@
+
+
+So the the topic, is a university project on imigration and borders etc. The project is to create a playlist that represents boarders immegration and migration. 
+
+The idea
+
+interactive website, with a main page with each song. each time you click onto the song, it gives you the description, and on the side it gives you lyrics down the side. and just above the description theres a link to the song.  
+
+
+the playlist
+
+1. “Smokestack Lightnin’” — Howlin’ Wolf
+
+Topic: Fortress Europe
+Genre: Chicago Blues
+Sub-Category: Electric Blues, Roots Music
+Link: https://www.youtube.com/watch?v=VMUt8KdDtTY
+
+2. “Wavin’ Flag” — K’naan
+
+Topic: Resisting Borders, Resisting Racism
+Genre: Hip-Hop / World Music
+Sub-Category: Afro-Fusion, Conscious Rap
+Link: https://www.youtube.com/watch?v=VXSJoVL2Vp0
+
+3. “Get Up, Stand Up” — Bob Marley & The Wailers
+
+Topic: Neoracism
+Genre: Reggae
+Sub-Category: Roots Reggae, Protest Music
+Link: https://www.youtube.com/watch?v=X2W3aG8uizA
+
+4. “Strange Fruit” — Billie Holiday
+
+Topic: Direct Provision
+Genre: Jazz
+Sub-Category: Vocal Jazz, Protest / Anti-Lynching Song
+Link: https://www.youtube.com/watch?v=-DGY9HvChXk
+
+5. “Parting Glass” — Various Artists
+
+Topic: Autonomy of Migration Theory
+Genre: Traditional Folk
+Sub-Category: Celtic Folk, Irish/Scottish Ballad
+Link: https://www.youtube.com/watch?v=0KTQYMm3GCM
+
+6. “I’m Leavin’” — Mos Def (Yasiin Bey)
+
+Topic: Labour Migration
+Genre: Hip-Hop
+Sub-Category: Alternative Hip-Hop, Conscious Rap
+Link: https://www.youtube.com/watch?v=lMTZa82UVqE
+
+7. “London Calling” — The Clash
+
+Topic: Hyper-Diversity
+Genre: Punk Rock
+Sub-Category: Post-Punk, Political Punk
+Link: https://www.youtube.com/watch?v=EfK-WX2pa8c
+
+8. “The Revolution Will Not Be Televised” — Gil Scott-Heron
+
+Topic: Colonialism and the Birth of Race / Racialisation as a Process
+Genre: Spoken Word / Proto-Rap
+Sub-Category: Jazz-Funk, Political Poetry
+Link: https://www.youtube.com/watch?v=QnJFhuOWgXg
+
+9. “My War” — Black Flag
+
+Topic: Governing Migration: Fortress Europe
+Genre: Hardcore Punk
+Sub-Category: American Punk, Early Post-Hardcore
+Link: https://www.youtube.com/watch?v=ga6v91ZGL1U
+
+10. “I A Rebel Soul” — Aswad
+
+Topic: Assimilation, Integration and Acculturation
+Genre: Reggae
+Sub-Category: British Reggae, Roots/Dub
+Link: https://www.youtube.com/watch?v=9EN9nXTrWT8

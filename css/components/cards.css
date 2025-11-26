@@ -1,0 +1,96 @@
+/* Card Component */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: var(--space-md);
+    color: inherit;
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+    cursor: pointer;
+
+    /* Staggered Animation Entry */
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animation Delays for Staggered Load */
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+.card:nth-child(4) { animation-delay: 0.5s; }
+.card:nth-child(5) { animation-delay: 0.6s; }
+.card:nth-child(6) { animation-delay: 0.7s; }
+.card:nth-child(7) { animation-delay: 0.8s; }
+.card:nth-child(8) { animation-delay: 0.9s; }
+.card:nth-child(9) { animation-delay: 1.0s; }
+.card:nth-child(10) { animation-delay: 1.1s; }
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+}
+
+.card-number {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.card-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-main);
+    transition: fill var(--transition-medium);
+}
+
+.card:hover .card-icon {
+    fill: var(--accent-color);
+}
+
+.card-body {
+    margin-top: auto;
+}
+
+.card-topic {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-color);
+    margin-bottom: var(--space-xs);
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+}
+
+.card-artist {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+    .card {
+        height: 280px;
+    }
+
+    .card-title {
+        font-size: 2rem;
+    }
+}

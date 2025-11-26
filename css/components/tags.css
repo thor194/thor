@@ -1,0 +1,23 @@
+/* Tag Component */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.tag {
+    border: 1px solid var(--border-color);
+    padding: 0.2em 0.6em;
+    border-radius: 100px;
+    transition: all var(--transition-medium);
+}
+
+.card:hover .tag {
+    border-color: var(--accent-color);
+    color: var(--bg-color);
+    background-color: var(--accent-color);
+}

@@ -1,0 +1,20 @@
+/* Layout - Container & Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--space-lg) var(--space-sm);
+    }
+}
