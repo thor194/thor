@@ -77,7 +77,8 @@
       "lyrics": "Lorem ipsum dolor sit amet\nConsectetur adipiscing elit\nSed do eiusmod tempor\nIncididunt ut labore\n\nUt enim ad minim veniam\nQuis nostrud exercitation\nUllamco laboris nisi\nUt aliquip ex ea commodo",
       "youtubeId": "0KTQYMm3GCM",
       "youtubeUrl": "https://www.youtube.com/watch?v=0KTQYMm3GCM",
-      "spotifyId": "4Dju9g4o3HgEuNTjmNFGBB",
+      "spotifyId": null,
+      "preferYoutube": true,
       "duration": "3:48"
     },
     {
@@ -93,7 +94,8 @@
       "lyrics": "Lorem ipsum dolor sit amet\nConsectetur adipiscing elit\nSed do eiusmod tempor\nIncididunt ut labore\n\nUt enim ad minim veniam\nQuis nostrud exercitation\nUllamco laboris nisi\nUt aliquip ex ea commodo",
       "youtubeId": "lMTZa82UVqE",
       "youtubeUrl": "https://www.youtube.com/watch?v=lMTZa82UVqE",
-      "spotifyId": "0eHPpGVzjAgYtw4PUu8scz",
+      "spotifyId": null,
+      "preferYoutube": true,
       "duration": "4:22"
     },
     {

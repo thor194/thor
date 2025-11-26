@@ -85,12 +85,15 @@ class ModalController {
         // Store current song
         this.currentSong = song;
 
-        // Reset to Spotify player by default
-        this.activePlayer = 'spotify';
-        this.tabSpotify.classList.add('active');
-        this.tabYoutube.classList.remove('active');
-        this.spotifyContainer.classList.add('active');
-        this.youtubeContainer.classList.remove('active');
+        // Determine default player - YouTube for songs without Spotify
+        const defaultPlayer = (song.preferYoutube || !song.spotifyId) ? 'youtube' : 'spotify';
+        this.activePlayer = defaultPlayer;
+
+        // Set tab and container states based on default player
+        this.tabSpotify.classList.toggle('active', defaultPlayer === 'spotify');
+        this.tabYoutube.classList.toggle('active', defaultPlayer === 'youtube');
+        this.spotifyContainer.classList.toggle('active', defaultPlayer === 'spotify');
+        this.youtubeContainer.classList.toggle('active', defaultPlayer === 'youtube');
 
         // Populate content
         this.populate(song);
@@ -121,16 +124,19 @@ class ModalController {
     }
 
     populate(song) {
-        // Set Spotify embed URL by default
-        if (song.spotifyId) {
-            this.spotifyPlayer.src = `https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0`;
-        }
-
-        // Set YouTube direct link as fallback
+        // Set YouTube direct link
         this.youtubeLinkEl.href = song.youtubeUrl;
 
-        // Clear YouTube (will load when tab clicked)
-        this.youtubePlayer.src = '';
+        // Load the appropriate player based on preference
+        if (song.preferYoutube || !song.spotifyId) {
+            // Load YouTube first, clear Spotify
+            this.youtubePlayer.src = `https://www.youtube.com/embed/${song.youtubeId}?rel=0`;
+            this.spotifyPlayer.src = '';
+        } else {
+            // Load Spotify first, clear YouTube
+            this.spotifyPlayer.src = `https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0`;
+            this.youtubePlayer.src = '';
+        }
 
         // Set duration display
         this.spotifyDuration.textContent = song.duration ? `Duration: ${song.duration}` : '';
