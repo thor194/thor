@@ -5,6 +5,10 @@ class ModalController {
         this.overlay = document.getElementById('modal-overlay');
         this.modal = document.getElementById('modal');
         this.closeBtn = document.getElementById('modal-close');
+        this.expandBtn = document.getElementById('modal-expand');
+
+        // Expanded state
+        this.isExpanded = false;
 
         // Player elements
         this.youtubePlayer = document.getElementById('youtube-player');
@@ -54,6 +58,15 @@ class ModalController {
         // Player tab switching
         this.tabYoutube.addEventListener('click', () => this.switchPlayer('youtube'));
         this.tabSpotify.addEventListener('click', () => this.switchPlayer('spotify'));
+
+        // Expand button
+        this.expandBtn.addEventListener('click', () => this.toggleExpand());
+    }
+
+    toggleExpand() {
+        this.isExpanded = !this.isExpanded;
+        this.overlay.classList.toggle('expanded', this.isExpanded);
+        this.modal.classList.toggle('expanded', this.isExpanded);
     }
 
     switchPlayer(player) {
@@ -109,6 +122,11 @@ class ModalController {
         // Hide modal
         this.overlay.classList.remove('active');
         document.body.classList.remove('modal-open');
+
+        // Reset expanded state
+        this.isExpanded = false;
+        this.overlay.classList.remove('expanded');
+        this.modal.classList.remove('expanded');
 
         // Stop both players by clearing src
         this.youtubePlayer.src = '';
