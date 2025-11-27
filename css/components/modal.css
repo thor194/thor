@@ -56,6 +56,25 @@
     flex-direction: column;
 }
 
+/* Animated gradient orbs background */
+.modal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background:
+        radial-gradient(ellipse 60% 50% at var(--orb1-x, 20%) var(--orb1-y, 30%), rgba(204, 255, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 60% at var(--orb2-x, 80%) var(--orb2-y, 70%), rgba(180, 40, 80, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse 55% 45% at var(--orb3-x, 50%) var(--orb3-y, 50%), rgba(60, 120, 200, 0.06) 0%, transparent 50%);
+}
+
+.modal-overlay.active .modal::before {
+    opacity: 1;
+}
+
 .modal-overlay.active .modal {
     transform: translateY(0);
 }

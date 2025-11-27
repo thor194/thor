@@ -34,6 +34,10 @@ class ModalController {
         this.currentSong = null;
         this.activePlayer = 'spotify';
 
+        // Gradient animation
+        this.animationId = null;
+        this.startTime = null;
+
         this.bindEvents();
     }
 
@@ -67,6 +71,41 @@ class ModalController {
         this.isExpanded = !this.isExpanded;
         this.overlay.classList.toggle('expanded', this.isExpanded);
         this.modal.classList.toggle('expanded', this.isExpanded);
+    }
+
+    // Animated gradient orbs
+    startGradientAnimation() {
+        this.startTime = performance.now();
+        const animate = (currentTime) => {
+            const elapsed = (currentTime - this.startTime) / 1000;
+
+            // Wave-like orb movements with different speeds and phases
+            const orb1X = 20 + Math.sin(elapsed * 0.3) * 15 + Math.cos(elapsed * 0.5) * 10;
+            const orb1Y = 30 + Math.cos(elapsed * 0.4) * 20;
+
+            const orb2X = 80 + Math.sin(elapsed * 0.35 + 2) * 12 + Math.cos(elapsed * 0.25) * 8;
+            const orb2Y = 70 + Math.sin(elapsed * 0.45 + 1) * 15;
+
+            const orb3X = 50 + Math.cos(elapsed * 0.28 + 4) * 20;
+            const orb3Y = 50 + Math.sin(elapsed * 0.38 + 3) * 18 + Math.cos(elapsed * 0.2) * 10;
+
+            this.modal.style.setProperty('--orb1-x', `${orb1X}%`);
+            this.modal.style.setProperty('--orb1-y', `${orb1Y}%`);
+            this.modal.style.setProperty('--orb2-x', `${orb2X}%`);
+            this.modal.style.setProperty('--orb2-y', `${orb2Y}%`);
+            this.modal.style.setProperty('--orb3-x', `${orb3X}%`);
+            this.modal.style.setProperty('--orb3-y', `${orb3Y}%`);
+
+            this.animationId = requestAnimationFrame(animate);
+        };
+        this.animationId = requestAnimationFrame(animate);
+    }
+
+    stopGradientAnimation() {
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
     }
 
     switchPlayer(player) {
@@ -114,6 +153,9 @@ class ModalController {
         this.overlay.classList.add('active');
         document.body.classList.add('modal-open');
 
+        // Start gradient animation
+        this.startGradientAnimation();
+
         // Focus the close button for accessibility
         this.closeBtn.focus();
     }
@@ -122,6 +164,9 @@ class ModalController {
         // Hide modal
         this.overlay.classList.remove('active');
         document.body.classList.remove('modal-open');
+
+        // Stop gradient animation
+        this.stopGradientAnimation();
 
         // Reset expanded state
         this.isExpanded = false;
