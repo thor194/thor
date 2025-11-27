@@ -4,9 +4,12 @@ An interactive music website exploring migration, borders, and belonging through
 
 ## Live Demo
 
-[View Live Site](https://YOUR_USERNAME.github.io/soundScape/)
+[View Live Site]([https://YOUR_USERNAME.github.io/soundScape/](https://thor194.github.io/thor/))
 
-> Replace `YOUR_USERNAME` with your GitHub username after deployment.
+<img width="1868" height="876" alt="image" src="https://github.com/user-attachments/assets/4b625b0a-53ad-4a30-8cdc-c7279f4ce8ef" />
+<img width="1891" height="900" alt="image" src="https://github.com/user-attachments/assets/fcf82cac-8494-405d-abe1-b72aa53332bb" />
+
+
 
 ## Features
 
