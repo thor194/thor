@@ -27,5 +27,32 @@ async function init() {
     });
 }
 
+// Main page references panel
+function initMainReferences() {
+    const footerBtn = document.getElementById('footer-references-btn');
+    const mainPanel = document.getElementById('main-references-panel');
+    const mainCloseBtn = document.getElementById('main-references-close');
+
+    if (footerBtn && mainPanel && mainCloseBtn) {
+        footerBtn.addEventListener('click', () => {
+            mainPanel.classList.add('active');
+        });
+
+        mainCloseBtn.addEventListener('click', () => {
+            mainPanel.classList.remove('active');
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mainPanel.classList.contains('active')) {
+                mainPanel.classList.remove('active');
+            }
+        });
+    }
+}
+
 // Run when DOM is ready
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    initMainReferences();
+});

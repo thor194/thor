@@ -30,6 +30,11 @@ class ModalController {
         this.lyricsEl = document.getElementById('lyrics-content');
         this.youtubeLinkEl = document.getElementById('youtube-link');
 
+        // References panel elements
+        this.referencesBtn = document.getElementById('references-btn');
+        this.referencesPanel = document.getElementById('references-panel');
+        this.referencesClose = document.getElementById('references-close');
+
         // Current song data
         this.currentSong = null;
         this.activePlayer = 'spotify';
@@ -65,6 +70,18 @@ class ModalController {
 
         // Expand button
         this.expandBtn.addEventListener('click', () => this.toggleExpand());
+
+        // References panel
+        this.referencesBtn.addEventListener('click', () => this.openReferences());
+        this.referencesClose.addEventListener('click', () => this.closeReferences());
+    }
+
+    openReferences() {
+        this.referencesPanel.classList.add('active');
+    }
+
+    closeReferences() {
+        this.referencesPanel.classList.remove('active');
     }
 
     toggleExpand() {
@@ -173,6 +190,9 @@ class ModalController {
         this.overlay.classList.remove('expanded');
         this.modal.classList.remove('expanded');
 
+        // Close references panel
+        this.closeReferences();
+
         // Stop both players by clearing src
         this.youtubePlayer.src = '';
         this.spotifyPlayer.src = '';
@@ -201,7 +221,15 @@ class ModalController {
         this.titleEl.textContent = song.title;
         this.artistEl.textContent = song.artist;
         this.genreEl.textContent = `${song.genre} · ${song.subGenre}`;
-        this.descriptionEl.textContent = song.description;
+
+        // Convert description to paragraphs for better readability
+        const paragraphs = song.description.split('\n\n').filter(p => p.trim());
+        if (paragraphs.length > 1) {
+            this.descriptionEl.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+        } else {
+            this.descriptionEl.textContent = song.description;
+        }
+
         this.lyricsEl.textContent = song.lyrics;
     }
 }

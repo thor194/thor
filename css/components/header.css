@@ -17,12 +17,21 @@ h1 {
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.author {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: var(--space-md);
+    opacity: 0;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
 .subtitle {
     font-family: var(--font-body);
     font-size: 1.1rem;
     color: var(--text-muted);
-    max-width: 400px;
-    line-height: 1.5;
+    max-width: 80%;
+    line-height: 1.7;
     opacity: 0;
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
@@ -30,5 +39,9 @@ h1 {
 @media (max-width: 768px) {
     h1 {
         font-size: 14vw;
+    }
+
+    .subtitle {
+        max-width: 100%;
     }
 }

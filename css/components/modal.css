@@ -349,8 +349,17 @@
 
 .modal-description {
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.9;
     color: var(--text-main);
+    text-align: justify;
+}
+
+.modal-description p {
+    margin-bottom: 1.2em;
+}
+
+.modal-description p:last-child {
+    margin-bottom: 0;
 }
 
 /* Right Panel - Lyrics */
@@ -429,5 +438,140 @@
     .modal-close {
         top: var(--space-sm);
         right: var(--space-sm);
+    }
+}
+
+/* References Button */
+.references-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    margin-top: var(--space-lg);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.references-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.references-btn svg {
+    flex-shrink: 0;
+}
+
+/* References Sliding Panel */
+.references-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background: var(--card-bg);
+    border-left: 1px solid var(--border-color);
+    transform: translateX(100%);
+    transition: transform var(--transition-medium);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.references-panel.active {
+    transform: translateX(0);
+}
+
+.references-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.references-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.references-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.references-close:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.references-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-lg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.references-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.references-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.references-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.reference-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reference-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.reference-item em {
+    color: var(--text-muted);
+}
+
+/* Mobile References Panel */
+@media (max-width: 768px) {
+    .references-panel {
+        max-width: 100%;
+    }
+
+    .references-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
